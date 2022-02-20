@@ -116,6 +116,7 @@ namespace IdentityServerHost.Configuration
                     },
 
                     RequireConsent = true,
+                    AllowAccessTokensViaBrowser = true,
                     AllowedGrantTypes = GrantTypes.Implicit,
 
                     RedirectUris = { "https://localhost:44302/signin-oidc" },
