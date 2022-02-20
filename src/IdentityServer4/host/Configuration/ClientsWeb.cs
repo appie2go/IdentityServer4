@@ -122,8 +122,6 @@ namespace IdentityServerHost.Configuration
                     FrontChannelLogoutUri = "https://localhost:44302/signout-oidc",
                     PostLogoutRedirectUris = { "https://localhost:44302/signout-callback-oidc" },
 
-                    AllowOfflineAccess = true,
-
                     AllowedScopes = allowedScopes
                 },
                 
