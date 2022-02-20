@@ -23,7 +23,7 @@ jobs:
         dotnet-version: 3.1.x
 
     - name: Install zip
-      run: dotnet tool install dotnet-zip
+      run: dotnet tool install dotnet-zip -v 0.1.220
     - name: Create nuget folder
       run: mkdir nuget
     - name: Restore dependencies
