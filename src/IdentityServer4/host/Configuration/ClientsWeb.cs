@@ -102,7 +102,7 @@ namespace IdentityServerHost.Configuration
                 },
                 
                 ///////////////////////////////////////////
-                // MVC Code Flow Sample
+                // MVC Implicit Flow Sample
                 //////////////////////////////////////////
                 new Client
                 {
