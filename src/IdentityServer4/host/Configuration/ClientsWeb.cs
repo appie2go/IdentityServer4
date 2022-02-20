@@ -102,6 +102,32 @@ namespace IdentityServerHost.Configuration
                 },
                 
                 ///////////////////////////////////////////
+                // MVC Code Flow Sample
+                //////////////////////////////////////////
+                new Client
+                {
+                    ClientId = "spa.implicit",
+                    ClientName = "SPA Implicit Flow",
+                    ClientUri = "http://identityserver.io",
+
+                    ClientSecrets =
+                    {
+                        new Secret("secret".Sha256())
+                    },
+
+                    RequireConsent = true,
+                    AllowedGrantTypes = GrantTypes.Implicit,
+
+                    RedirectUris = { "https://localhost:44302/signin-oidc" },
+                    FrontChannelLogoutUri = "https://localhost:44302/signout-oidc",
+                    PostLogoutRedirectUris = { "https://localhost:44302/signout-callback-oidc" },
+
+                    AllowOfflineAccess = true,
+
+                    AllowedScopes = allowedScopes
+                },
+                
+                ///////////////////////////////////////////
                 // MVC Hybrid Flow Sample (Back Channel logout)
                 //////////////////////////////////////////
                 new Client
