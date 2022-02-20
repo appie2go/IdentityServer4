@@ -33,7 +33,6 @@ jobs:
       
     - name: ls
       run: |
-        ls
         ls dotnet-webapp
 
     - uses: azure/webapps-deploy@v2
