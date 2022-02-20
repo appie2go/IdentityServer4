@@ -33,11 +33,11 @@ jobs:
       
     - name: ls
       run: |
-        ls dotnet-webapp
+        ls '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/dotnet-webapp'
 
     - uses: azure/webapps-deploy@v2
       name: Deploy
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
-        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2CA027B81BB0434BAAB4A949469E8C3A  }} 
+        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2CA027B81BB0434BAAB4A949469E8C3A }} 
         package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/dotnet-webapp'
