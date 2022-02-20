@@ -21,22 +21,18 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.x
+        
     - name: Create nuget folder
       run: mkdir nuget
-    - name: Restore dependencies
-      run: dotnet restore
+
     - name: Build
-      run: dotnet publish
-    - name: Zip
-      uses: papeloto/action-zip@v1
+      run: |
+        dotnet build --configuration Release --no-restore
+        dotnet publish -c Release -o ../dotnet-webapp -r linux-x64 --self-contained true /p:UseAppHost=true
+      
+    - uses: azure/webapps-deploy@v2
+      name: Deploy
       with:
-        files: '${{ env.WEBAPP_PACKAGE_PATH }}/src/IdentityServer4/src/bin/Debug/netcoreapp3.1/publish/*'
-        dest: app.zip
-    - name: ls
-      run: ls '${{ env.WEBAPP_PACKAGE_PATH }}/src/IdentityServer4/src/bin/Debug/netcoreapp3.1/publish'
-    - name: 'Run Azure webapp deploy action using publish profile credentials'
-      uses: azure/webapps-deploy@v2
-      with: 
-        app-name: ${{ env.WEBAPP_NAME }} 
+        app-name: ${{ env.AZURE_WEBAPP_NAME }}
         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2CA027B81BB0434BAAB4A949469E8C3A  }} 
-        package: '.'
+        package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/dotnet-webapp'
