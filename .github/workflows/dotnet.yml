@@ -21,12 +21,13 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.x
-        
+
     - name: Create nuget folder
       run: mkdir nuget
 
     - name: Build
       run: |
+        dotnet restore
         dotnet build --configuration Release --no-restore
         dotnet publish -c Release -o ../dotnet-webapp -r linux-x64 --self-contained true /p:UseAppHost=true
       
