@@ -90,7 +90,8 @@ namespace IdentityServerHost
                 });
             
             services.AddCertificateForwardingForNginx();
-            
+            services.AddHttpsRedirection(options => options.HttpsPort = 443);
+
             services.AddLocalApiAuthentication(principal =>
             {
                 principal.Identities.First().AddClaim(new Claim("additional_claim", "additional_value"));
