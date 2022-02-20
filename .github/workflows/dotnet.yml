@@ -21,9 +21,6 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.x
-
-    - name: Install zip
-      run: dotnet tool install --version 0.1.220 dotnet-zip 
     - name: Create nuget folder
       run: mkdir nuget
     - name: Restore dependencies
