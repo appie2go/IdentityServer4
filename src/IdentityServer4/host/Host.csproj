@@ -11,6 +11,12 @@
 
   <ItemGroup>
     <None Include="compilerconfig.json" />
+    <None Update="Keys\identityserver.test.ecdsa.p12">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Keys\identityserver.test.rsa.p12">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
