@@ -115,9 +115,10 @@ namespace IdentityServerHost.Configuration
                         new Secret("secret".Sha256())
                     },
 
-                    RequireConsent = true,
+                    RequireConsent = false,
                     AllowAccessTokensViaBrowser = true,
                     AllowedGrantTypes = GrantTypes.Implicit,
+                    AlwaysIncludeUserClaimsInIdToken = true,
 
                     RedirectUris = { "https://localhost:44302/signin-oidc" },
                     FrontChannelLogoutUri = "https://localhost:44302/signout-oidc",
