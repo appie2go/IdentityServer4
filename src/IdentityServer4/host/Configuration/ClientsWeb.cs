@@ -120,7 +120,7 @@ namespace IdentityServerHost.Configuration
                     AllowedGrantTypes = GrantTypes.Implicit,
                     AlwaysIncludeUserClaimsInIdToken = true,
 
-                    RedirectUris = { "https://localhost:44302/signin-oidc" },
+                    RedirectUris = { "https://localhost:44302/signin-oidc", "https://localhost:4200/token", "http://localhost:4200/token" },
                     FrontChannelLogoutUri = "https://localhost:44302/signout-oidc",
                     PostLogoutRedirectUris = { "https://localhost:44302/signout-callback-oidc" },
 
