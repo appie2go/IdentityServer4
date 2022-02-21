@@ -17,6 +17,7 @@ using System.Security.Claims;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using IdentityServer4.Hosting;
 using IdentityServerHost.Extensions;
 using Microsoft.AspNetCore.Authentication.Certificate;
 using Microsoft.AspNetCore.HttpOverrides;
@@ -92,6 +93,12 @@ namespace IdentityServerHost
             services.AddCertificateForwardingForNginx();
             services.AddHttpsRedirection(options => options.HttpsPort = 443);
 
+            services.AddCors(options => options.AddPolicy("cors", policy =>
+                policy
+                    .AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .WithOrigins("*")));
+
             services.AddLocalApiAuthentication(principal =>
             {
                 principal.Identities.First().AddClaim(new Claim("additional_claim", "additional_value"));
@@ -122,6 +129,9 @@ namespace IdentityServerHost
             app.UseIdentityServer();
 
             app.UseAuthorization();
+
+            app.UseCors("cors");
+            app.ConfigureCors();
 
             app.UseEndpoints(endpoints =>
             {
