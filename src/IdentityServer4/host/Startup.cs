@@ -111,6 +111,8 @@ namespace IdentityServerHost
         {
             // use this for persisted grants store
             // app.InitializePersistedGrantsStore();
+
+            app.UseCors("cors");
             
             app.UseForwardedHeaders(new ForwardedHeadersOptions
             {
@@ -131,7 +133,6 @@ namespace IdentityServerHost
             app.UseAuthorization();
 
             app.UseCors("cors");
-            app.ConfigureCors();
 
             app.UseEndpoints(endpoints =>
             {
