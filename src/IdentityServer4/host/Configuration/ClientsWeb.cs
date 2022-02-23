@@ -66,9 +66,9 @@ namespace IdentityServerHost.Configuration
 
                     AccessTokenLifetime = 75,
 
-                    RedirectUris = { "https://localhost:44301/signin-oidc" },
-                    FrontChannelLogoutUri = "https://localhost:44301/signout-oidc",
-                    PostLogoutRedirectUris = { "https://localhost:44301/signout-callback-oidc" },
+                    RedirectUris = { "https://localhost:44302/signin-oidc", "https://localhost:4200/token", "http://localhost:4200/token" },
+                    FrontChannelLogoutUri = "https://localhost:4200/signout-oidc",
+                    PostLogoutRedirectUris = { "https://localhost:4200/signout-callback-oidc" },
 
                     AllowOfflineAccess = true,
 
