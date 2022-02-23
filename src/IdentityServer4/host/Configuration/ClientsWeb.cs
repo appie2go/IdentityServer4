@@ -62,6 +62,7 @@ namespace IdentityServerHost.Configuration
                     },
 
                     AllowedGrantTypes = GrantTypes.Code,
+                    RequireClientSecret = false,
                     RequirePkce = true,
 
                     AccessTokenLifetime = 75,
