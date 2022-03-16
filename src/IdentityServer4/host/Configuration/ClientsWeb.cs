@@ -61,6 +61,9 @@ namespace IdentityServerHost.Configuration
                         new Secret("secret".Sha256())
                     },
 
+                    RefreshTokenUsage = TokenUsage.ReUse,
+                    RefreshTokenExpiration = TokenExpiration.Absolute,
+                    
                     AllowedGrantTypes = GrantTypes.Code,
                     RequireClientSecret = false,
                     RequirePkce = true,
