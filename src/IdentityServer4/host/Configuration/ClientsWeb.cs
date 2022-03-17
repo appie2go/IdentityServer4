@@ -70,7 +70,7 @@ namespace IdentityServerHost.Configuration
 
                     AccessTokenLifetime = 75,
 
-                    RedirectUris = { "https://localhost:44302/signin-oidc", "https://localhost:4200/token", "http://localhost:4200/token", "http://localhost:4200/token.html" },
+                    RedirectUris = { "https://localhost:44302/signin-oidc", "https://localhost:4200/token", "http://localhost:4200/token", "http://localhost:4200/token.html", "https://sl-hello-world-container-app.yellowdesert-e0910c8e.westeurope.azurecontainerapps.io/token" },
                     FrontChannelLogoutUri = "https://localhost:4200/signout-oidc",
                     PostLogoutRedirectUris = { "https://localhost:4200/signout-callback-oidc" },
 
